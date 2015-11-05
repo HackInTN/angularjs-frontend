@@ -1,0 +1,174 @@
+body {
+	background-color: #FFD;
+	color: #003;
+}
+#title {
+	display: block;
+	margin-top: 1%;
+	margin-left: 1%;
+	margin-bottom: 1%;
+	width: 98%;
+	min-height: 8%;
+	text-align: center;
+	border: 1px dashed #88B;
+	border-radius: 15px;
+}
+#main {
+	text-align: center;
+}
+#main.center {
+	padding-left: 25%;
+	padding-right: 25%;
+}
+#main form.login {
+	border: 1px dashed #88B;
+	border-radius: 15px;
+	margin: auto;
+	padding: 2%;
+}
+#main form.login input {
+	max-width: 100;
+}
+#main .icon-credit {
+	border: 1px dashed #88B;
+	border-radius: 15px;
+	margin: auto;
+	padding: 2%;
+	margin-bottom: 1%;
+}
+#main .exContainer {
+	float: left;
+	min-width: 29%;
+	padding: 1%;
+	border: 1px dashed #88B;
+	border-radius: 15px;
+	margin-left: 1%;
+	margin-right: 1%;
+	margin-bottom: 2%;
+}
+#main .exContainer .icon {
+	float: right;
+}
+#main .exContainer .icon.launched {
+	content:url(/icons/runningnok.png);
+}
+#main .exContainer .icon.launchedok {
+	content:url(/icons/runningok.png);
+}
+#main .exContainer .icon.finished {
+	content:url(/icons/finished.png);
+}
+#main .exContainer .icon.stopped {
+	content:url(/icons/stopped.png);
+}
+
+#main .exEnd {
+	clear: left;
+	display: block;
+	border: 1px dashed #88b;
+	border-radius: 15px;
+	text-align: center;
+	margin-top: 1%;
+	margin-left: 1%;
+	width: 98%;
+	min-height: 4%;
+	font-size: 120%;
+}
+
+#main .cb {
+	display: none;
+}
+#cover input {
+	display: none;
+}
+#cover div {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(127,127,127,0.2);
+}
+#cover input:checked + div {
+	display: none;
+}
+#main .content {
+	position: absolute;
+	overflow: hidden;
+	top: 10%;
+	left: 10%;
+	width: 78%;
+	height: 0px;
+	background-color: rgba(255,255,230,0.9);
+	border: none;
+	border-radius: 30px;
+	text-align: center;
+	transition: height .5s ease;
+}
+#main .cb:checked + .content {
+	display: block;
+	height: 78%;
+	border: 1px dashed #88B;
+}
+#main .content span {
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: #FFD;
+}
+#main .content span label {
+	font-size: 120%;
+}
+#main .content span.ok {
+	border: 1px solid green;
+	background-color: #DFB;
+}
+#main .content .ok label {
+	color: #391;
+}
+#main .content span.nok {
+	border: 1px solid red;
+	background-color: #FDB;
+}
+#main .content .nok label {
+	color: #D11;
+}
+#main .content form.launch input {
+	height: 20%;
+	width: 50%;
+	border-radius: 15px;
+	font-size: 300%;
+	color: #391;
+	background-color: #DFB;
+}
+#main .content form.launch input:disabled{
+	background-color: #170;
+}
+#main .content form.go input {
+	height: 20%;
+	width: 50%;
+	border-radius: 15px;
+	font-size: 300%;
+	color: #391;
+	background-color: #DEB;
+}
+#main .content form.stop input {
+	height: 5%;
+	width: 30%;
+	border-radius: 15px;
+	font-size: 120%;
+	color: #D11;
+	background-color: #FDB;
+}
+#footer {
+	clear: left;
+	display: block;
+	border: 1px dashed #88b;
+	border-radius: 15px;
+	text-align: center;
+	margin-top: 1%;
+	margin-left: 1%;
+	width: 98%;
+	min-height: 4%;
+	font-size: 120%;
+}

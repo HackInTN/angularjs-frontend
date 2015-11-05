@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/style.css" />
+		<title>Hack In TN - Documentation</title>
+		<meta charset="utf-8" />
+		<style>
+			table {
+				clear: left;
+				border-collapse: collapse;
+				text-align: left;
+				width: 98%;
+				margin-left: 1%;
+				border-radius: 15px;
+			}
+			table, tr, td {
+				border: 1px dashed #995;
+			}
+			th {
+				border-bottom: 1px solid #995;
+			}
+			tr:nth-child(even) {
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+			tr:nth-child(odd) {
+				background-color: rgba(0, 0, 0, 0);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="title" ><h1>Hack In TN - Documentation</h1></div>
+		<div id="main">
+			<h3>Documentation de l'API</h3>
+			<div class="exContainer">
+				<h4>API Docker</h4>
+				<p>
+					L'api est disponible à l'adresse :<br />
+					<a href="/api">hackintn.telecomnancy.net/api/</a>
+				</p>
+			</div>
+			<div class="exContainer">
+				<h4>Tokens</h4>
+				<p>
+					L'utilisateur s'identifie auprès de l'API en utilisant un système de tokens.<br />
+					Pour cela, l'utilisateur demande un token unique [T0], valable 12 heures, à l'url <code>/api/token</code>.<br />
+					Puis, l'utilisateur hash la chaîne :<br />
+					<code>path//json</code><br />
+					à l'aide de l'algorithme <code>bcrypt</code>, en utilisant son token [T0] comme sel, pour obtenir un token [T1]<br />
+					<small>Note : le JSON doit contenir le champ <code>token_date</code>, donnant le timestamp de la requête.</small><br />
+					Enfin, L'utilisateur joint à son JSON le champ <code>token</code> contenant le token [T1].<br />
+					L'user_id de la demande est assumé par l'URL, sauf s'il est précisé par un champ <code>user_id</code> dans le JSON de la requête.
+				</p>
+			</div>
+			<table>
+				<tr>
+					<th>METHODE</th>
+					<th>ROUTE</th>
+					<th>EFFET</th>
+					<th>ARGUMENTS</th>
+					<th>RETOUR</th>
+				</tr>
+				<tr>
+<td><pre>GET</pre></td>
+<td><pre>/api/user</pre></td>
+<td>Affiche une liste d'utilisateurs</td>
+<td><pre>{
+	begin: &lt;int&gt;,
+	length: &lt;int&gt;
+}</pre></td>
+<td><pre>{
+	begin: &lt;int&gt;,
+	length: &lt;int&gt;,
+	users: [{
+		id: &lt;int&gt;,
+		email: &lt;string&gt;
+		username: &lt;string&gt;
+		}]
+}</pre></td>
+				</tr>
+				<tr>
+<td><pre>POST</pre></td>
+<td><pre>/api/user</pre></td>
+<td>Créé un utilisateur</td>
+<td><pre>{
+	username: &lt;string&gt;,
+	password: &lt;string&gt;,
+	email: &lt;string&gt;
+}</pre></td>
+<td><pre>{
+	user: {
+		id: &lt;int&gt;,
+		email: &lt;string&gt;
+		username: &lt;string&gt;
+	}
+}</pre></td>
+				</tr>
+				<tr>
+<td><pre>GET</pre></td>
+<td><pre>/api/user/&lt;int:user_id&gt;</pre></td>
+<td>Récupère les données d'un utilisateur</td>
+<td><pre>None</pre></td>
+<td><pre>{
+	user: {
+		id: &lt;int&gt;,
+		email: &lt;string&gt;
+		username: &lt;string&gt;
+	}
+}</pre></td>
+				</tr>
+				<tr>
+<td><pre>DELETE</pre></td>
+<td><pre>/api/user/&lt;int:user_id&gt;</pre></td>
+<td>Supprime l'utilisateur</td>
+<td><pre>{
+	[user_id: &lt;int&gt;,]
+	token_date: &lt;date&gt;,
+	token: &lt;token&gt;
+}</pre></td>
+<td><pre>{
+	user: {
+		id: &lt;int&gt;,
+		email: &lt;string&gt;
+		username: &lt;string&gt;
+	}
+}</pre></td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="footer">
+			&copy;Telecom Nancy 2015-2015 - <a href="credits.html">Credits</a>
+		</div>
+	</body>
+</html>
